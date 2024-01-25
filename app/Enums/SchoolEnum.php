@@ -1,12 +1,18 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Enums;
 
-enum SchoolEnum: string
+use BenSampo\Enum\Enum;
+
+/**
+ *
+ * 
+ */
+
+
+ class SchoolEnum extends Enum
 {
-    case SCHOOL_1 = 'school_1';
-    case SCHOOL_2 = 'school_2';
-    case SCHOOL_3 = 'school_3';
+    const SCHOOL_1 = 'school_1';
+    const SCHOOL_2 ='school_2';
+    const SCHOOL_3 = 'school_3';
 }

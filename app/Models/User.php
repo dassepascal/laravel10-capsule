@@ -49,7 +49,7 @@ class User extends Authenticatable
      * @return HasOne<StudentCard>
      */
 
-    public function studentCard()
+    public function studentCard(): HasOne
     {
         return $this->hasOne(StudentCard::class);
     }

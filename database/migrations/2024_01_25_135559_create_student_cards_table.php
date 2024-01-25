@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enums\SchoolEnum;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
 
 return new class extends Migration
 {
@@ -14,14 +16,14 @@ return new class extends Migration
         Schema::create('student_cards', function (Blueprint $table) {
             $table->id();
 
-            $table->string('school')->default(\App\Enums\SchoolEnum::SCHOOL_1->value);
+            $table->string('school')->default(SchoolEnum::SCHOOL_1()->value);
             $table->text('description')->nullable();
 
             $table ->boolean('is_internal')->default(false);
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
-            $table->date('date_of_birth')->nullable();
+            $table->date('date_of_birth');
 
             $table->timestamps();
         });

@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\StudentCard;
+use App\Models\User; // Add this import statement
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Enums\SchoolEnum;
 
 /**
  * @template TModel of \App\Models\StudentCard
@@ -27,7 +29,13 @@ class StudentCardFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
+
+            'school' => fake()->randomElement(SchoolEnum::getValues()),
+            'description' => fake()->sentence(),
+            'is_internal' => fake()->boolean(),
+            'date_of_birth' => fake()->dateTimeBetween('-50 years', 'now')->format('Y-m-d'),
+            'user_id' => User::factory(),
         ];
     }
 }

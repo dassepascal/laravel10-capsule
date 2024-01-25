@@ -21,7 +21,8 @@ class StudentCard extends Model
     /**
      * @return BelongsTo<User,StudentCard>
      */
-    public function user()
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
